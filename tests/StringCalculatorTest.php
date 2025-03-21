@@ -23,7 +23,7 @@ final class StringCalculatorTest extends TestCase
     {
         $stringCalculator = new StringCalculator();
 
-        $result = $stringCalculator->add('1');
+        $result = $stringCalculator->Add('1');
 
         $this->assertEquals(1, $result);
     }
