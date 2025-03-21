@@ -4,7 +4,7 @@ namespace Deg540\StringCalculatorPHP;
 
 class StringCalculator
 {
-    public function Add(string $numbers): int
+    public function add(string $numbers): int
     {
         return $numbers;
     }
