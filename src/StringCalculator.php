@@ -4,5 +4,8 @@ namespace Deg540\StringCalculatorPHP;
 
 class StringCalculator
 {
-    // TODO: String Calculator Kata
+    public function add(string $numbers): int
+    {
+        return $numbers;
+    }
 }

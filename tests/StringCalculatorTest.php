@@ -10,4 +10,21 @@ use PHPUnit\Framework\TestCase;
 final class StringCalculatorTest extends TestCase
 {
     // TODO: String Calculator Kata Tests
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $stringCalculator = new StringCalculator();
+    }
+
+    /**
+     * @test
+     */
+    public function givenSingleNumberReturnsSameNumber(): void
+    {
+        $stringCalculator = new StringCalculator();
+
+        $result = $stringCalculator->add('1');
+
+        $this->assertEquals(1, $result);
+    }
 }
