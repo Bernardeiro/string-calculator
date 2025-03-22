@@ -9,11 +9,12 @@ use PHPUnit\Framework\TestCase;
 
 final class StringCalculatorTest extends TestCase
 {
-    // TODO: String Calculator Kata Tests
+    private StringCalculator $stringCalculator;
+
     protected function setUp(): void
     {
         parent::setUp();
-        $stringCalculator = new StringCalculator();
+        $this->stringCalculator = new StringCalculator();
     }
 
     /**
@@ -21,10 +22,22 @@ final class StringCalculatorTest extends TestCase
      */
     public function givenSingleNumberReturnsSameNumber(): void
     {
-        $stringCalculator = new StringCalculator();
+        $this->assertEquals(1, $this->stringCalculator->add('1'));
+    }
 
-        $result = $stringCalculator->add('1');
+    /**
+     * @test
+     */
+    public function givenNumbersReturnsAddNumbers(): void
+    {
+        $this->assertEquals(6, $this->stringCalculator->add('1,2,3'));
+    }
 
-        $this->assertEquals(1, $result);
+    /**
+     * @test
+     */
+    public function givenNumbersSeparatedByCommasAndLineBreakReturnsSumOfNumbers(): void
+    {
+        $this->assertEquals(6, $this->stringCalculator->add('1\n2,3'));
     }
 }
