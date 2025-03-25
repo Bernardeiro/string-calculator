@@ -49,4 +49,11 @@ final class StringCalculatorTest extends TestCase
         $this->assertEquals(3, $this->stringCalculator->add('//;\n1;2'));
     }
 
+    /**
+     * @test
+     */
+    public function givenNumbersSeparatedByAmpersandReturnsSumOfNumbers(): void
+    {
+        $this->assertEquals(3, $this->stringCalculator->add('//&\n1&2'));
+    }
 }

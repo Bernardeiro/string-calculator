@@ -13,7 +13,8 @@ class StringCalculator
         $numbers = str_replace('\n', ',', $numbers);
 
         if (str_contains($numbers, '//')) {
-            $numbers = str_replace(['//;,', ';'], ['', ','], $numbers);
+            $delimiter = substr($numbers, 2, 1);
+            $numbers = str_replace(['//' . $delimiter . ',', $delimiter], ['', ','], $numbers);
 
             return array_sum(explode(',', $numbers));
         }
