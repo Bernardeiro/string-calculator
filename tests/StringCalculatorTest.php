@@ -40,4 +40,5 @@ final class StringCalculatorTest extends TestCase
     {
         $this->assertEquals(6, $this->stringCalculator->add('1\n2,3'));
     }
+
 }
