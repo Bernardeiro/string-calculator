@@ -10,8 +10,18 @@ class StringCalculator
             return 0;
         }
 
-        $numbers = str_replace('\\n', ',', $numbers);
+        $numbers = str_replace('\n', ',', $numbers);
 
-        return array_sum(explode(',', $numbers));
+        if (str_contains($numbers, '//')) {
+            $numbers = str_replace(['//;,', ';'], ['', ','], $numbers);
+
+            return array_sum(explode(',', $numbers));
+        }
+
+        if (str_contains($numbers, ',')) {
+            return array_sum(explode(',', $numbers));
+        }
+
+        return $numbers;
     }
 }
