@@ -17,21 +17,19 @@ class StringCalculator
         if (str_contains($numbers, '//')) {
             $delimiter = substr($numbers, 2, 1);
             $numbers = str_replace(['//' . $delimiter . ',', $delimiter], ['', ','], $numbers);
+            foreach (explode(',', $numbers) as $number) {
+                if ($number < 0) {
+                    throw new \Exception('Negativos no soportados');
+                }
+            }
 
             return array_sum(explode(',', $numbers));
         }
 
-        $numbersArray = explode(',', $numbers);
-        $negatives = [];
-
-        foreach ($numbersArray as $number) {
+        foreach (explode(',', $numbers) as $number) {
             if ($number < 0) {
-                $negatives[] = $number;
+                throw new \Exception('Negativos no soportados');
             }
-        }
-
-        if (!empty($negatives)) {
-            throw new \Exception('Negativos no soportados');
         }
 
         if (str_contains($numbers, ',')) {
