@@ -2,6 +2,8 @@
 
 namespace Deg540\StringCalculatorPHP;
 
+use function PHPUnit\Framework\throwException;
+
 class StringCalculator
 {
     public function add(string $numbers): int
@@ -17,6 +19,19 @@ class StringCalculator
             $numbers = str_replace(['//' . $delimiter . ',', $delimiter], ['', ','], $numbers);
 
             return array_sum(explode(',', $numbers));
+        }
+
+        $numbersArray = explode(',', $numbers);
+        $negatives = [];
+
+        foreach ($numbersArray as $number) {
+            if ($number < 0) {
+                $negatives[] = $number;
+            }
+        }
+
+        if (!empty($negatives)) {
+            throw new \Exception('Negativos no soportados');
         }
 
         if (str_contains($numbers, ',')) {
