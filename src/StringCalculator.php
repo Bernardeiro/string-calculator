@@ -36,6 +36,8 @@ class StringCalculator
         foreach (explode(',', $numbers) as $number) {
             if ($number < 0) {
                 $negativeNumbers[] = $number;
+            }else if ($number > 1000) {
+                $numbersHigherThan1000 .= $number;
             }
         }
         if (!empty($negativeNumbers)) {
@@ -43,7 +45,7 @@ class StringCalculator
         }
 
         if (str_contains($numbers, ',')) {
-            return array_sum(explode(',', $numbers));
+            return array_sum(explode(',', $numbers)) - $numbersHigherThan1000;
         }
 
         return $numbers;
