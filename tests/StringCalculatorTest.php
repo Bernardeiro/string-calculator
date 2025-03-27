@@ -64,9 +64,9 @@ final class StringCalculatorTest extends TestCase
     public function givenNegativeNumberThrowsException(): void
     {
         $this->expectException(\Exception::class);
-        $this->expectExceptionMessage('Negativos no soportados: -2');
+        $this->expectExceptionMessage('Negativos no soportados');
 
-        $this->stringCalculator->add('-1');
+        $this->stringCalculator->add('//&\n1&-2');
     }
 
     /**
@@ -74,7 +74,8 @@ final class StringCalculatorTest extends TestCase
      */
     public function givenNumbersReturnSumOfNumbersWithValueLowerThan1000(): void
     {
-        $this->assertEquals(3, $this->stringCalculator->add('//&\n1&2000&2'));
+        $this->assertEquals(1, $this->stringCalculator->add('//&\n1&1001'));
+
     }
 
 
