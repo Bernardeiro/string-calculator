@@ -64,9 +64,9 @@ final class StringCalculatorTest extends TestCase
     public function givenNegativeNumberThrowsException(): void
     {
         $this->expectException(\Exception::class);
-        $this->expectExceptionMessage('Negativos no soportados');
+        $this->expectExceptionMessage('Negativos no soportados: -2');
 
-        $this->stringCalculator->add('//&\n1&-2');
+        $this->stringCalculator->add('-2');
     }
 
 
