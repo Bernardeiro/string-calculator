@@ -16,8 +16,7 @@ class StringCalculator
         $numbers = str_replace('\n', ',', $numbers);
 
         if (str_contains($numbers, '//')) {
-            $delimiter = substr($numbers, 2, 1);
-            $numbers = str_replace(['//' . $delimiter . ',', $delimiter], ['', ','], $numbers);
+            $numbers = $this->extraeSeparador($numbers);
 
             foreach (explode(',', $numbers) as $number) {
                 if ($number < 0) {
@@ -48,6 +47,17 @@ class StringCalculator
             return array_sum(explode(',', $numbers)) - $numbersHigherThan1000;
         }
 
+        return $numbers;
+    }
+
+    /**
+     * @param array|string $numbers
+     * @return array|string|string[]
+     */
+    public function extraeSeparador(array|string $numbers): string|array
+    {
+        $delimiter = substr($numbers, 2, 1);
+        $numbers = str_replace(['//' . $delimiter . ',', $delimiter], ['', ','], $numbers);
         return $numbers;
     }
 }

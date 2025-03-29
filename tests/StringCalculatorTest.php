@@ -52,6 +52,7 @@ final class StringCalculatorTest extends TestCase
 
     /**
      * @test
+     * @throws \Exception
      */
     public function givenNumbersSeparatedByCustomDelimiterReturnsSumOfNumbers(): void
     {
